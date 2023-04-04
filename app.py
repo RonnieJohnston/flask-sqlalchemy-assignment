@@ -7,7 +7,7 @@ from src.models import db
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI']=\
-    'mysql://root:@localhost:3306/sqlalchemy?charset=utf8mb4'
+    'mysql://root:Ultimatemtg*11@localhost:3306/sqlalchemy?charset=utf8mb4'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db.init_app(app)
@@ -52,3 +52,6 @@ def search_movies():
     if q != '':
         found_movies = movie_repository_singleton.search_movies(q)
     return render_template('search_movies.html', search_active=True, movies=found_movies, search_query=q)
+
+if __name__ == '__main__':
+    app.run(debug=True)
